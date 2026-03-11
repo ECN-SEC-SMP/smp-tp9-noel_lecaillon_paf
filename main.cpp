@@ -7,6 +7,8 @@
 #include <iterator>
 #include "utils.h"
 
+
+
 void affiche(const std::vector<std::string>& v) {
     for (const auto& s : v) {
         std::cout << s << " ";
@@ -28,9 +30,17 @@ struct AddComma {
     }
 };
 
+
+
+
+
 void ajoute_evenement(std::map<int, std::list<std::string>>& m, int date, const std::string& intitule) {
     m[date].push_back(intitule);
 }
+
+
+
+
 
 void affiche_map(const std::map<int, std::list<std::string>>& m) {
     for (const auto& pair : m) {
@@ -128,13 +138,16 @@ int main() {
     ajoute_evenement(m, 1789, "Prise de la Bastille");
     affiche_map(m);
 
+
+
+
     csv mon_csv;
     mon_csv.ajoute_evenement(1998, "Coupe du monde");
     mon_csv.ajoute_evenement(1969, "Lune");
-    mon_csv.ecrire("dates_test.csv");
+    mon_csv.ecrire("dates.csv");
 
     csv csv_lu;
-    csv_lu.lire("dates_test.csv");
+    csv_lu.lire("dates.csv");
     csv_lu.affiche();
 
     return 0;
